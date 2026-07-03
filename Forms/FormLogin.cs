@@ -1,4 +1,4 @@
-﻿using SenacPDV.Models;
+﻿using SenacPDV.Models.Enuns;
 using SenacPDV.Services;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using SenacPDV.Models;
 
 namespace SenacPDV.Forms
 {
@@ -38,7 +39,11 @@ namespace SenacPDV.Forms
             {
                 MessageBox.Show("Usuário ou senha inválidos");
             }
-
+            if(TxtUser.Text == UserType.Admin.ToString())
+            {
+                var admin = new FormAdmin();
+                admin.ShowDialog();
+            }
         }
     }
 }
