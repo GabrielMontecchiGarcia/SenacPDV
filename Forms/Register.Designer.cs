@@ -49,6 +49,7 @@
             BTNRegister.TabIndex = 0;
             BTNRegister.Text = "Registrar";
             BTNRegister.UseVisualStyleBackColor = true;
+            BTNRegister.Click += BTNRegister_Click;
             // 
             // lbl1
             // 
@@ -150,6 +151,7 @@
             Controls.Add(BTNRegister);
             Name = "Register";
             Text = "Register";
+            Load += Register_Load;
             ResumeLayout(false);
             PerformLayout();
         }
