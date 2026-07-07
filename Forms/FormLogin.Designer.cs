@@ -59,6 +59,7 @@
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(155, 23);
             TxtUser.TabIndex = 2;
+            TxtUser.TextChanged += TxtUser_TextChanged;
             // 
             // TxtPassword
             // 

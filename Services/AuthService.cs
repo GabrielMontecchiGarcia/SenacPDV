@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
 using SenacPDV.Context;
 using SenacPDV.Models;
-using Microsoft.EntityFrameworkCore;
+using SenacPDV.Models.Enuns;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using SenacPDV.Forms;
 
 namespace SenacPDV.Services
 {
@@ -28,6 +30,7 @@ namespace SenacPDV.Services
                 return null;
             bool valid = VerifyPassword(password, user.PasswordHash);
             return valid ? user : null;
+            
         }
         public static bool registerUser(string username, string email, string password, string rolename = "User")
         {
@@ -51,6 +54,7 @@ namespace SenacPDV.Services
             db.SaveChanges();
             return true;
         }
+
         public static bool IsInRole(User user, string roleName)
         {
             return user.UserRoles.Any(ur => ur.Role.Name == roleName);
