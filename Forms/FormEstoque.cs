@@ -8,17 +8,17 @@ using System.Windows.Forms;
 
 namespace SenacPDV.Forms
 {
-    public partial class FormAdmin : Form
+    public partial class FormEstoque : Form
     {
-        public FormAdmin()
+        public FormEstoque()
         {
             InitializeComponent();
         }
 
-        private void estoqueToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            FormEstoque formEstoque = new FormEstoque();
-            formEstoque.Show();
+            MessageBox.Show("Produto adicionado ao estoque.");
+            
         }
     }
 }
