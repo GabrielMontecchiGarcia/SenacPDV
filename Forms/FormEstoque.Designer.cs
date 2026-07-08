@@ -28,80 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            btnAdicionar = new Button();
-            btnRemover = new Button();
-            btnAtualizar = new Button();
-            txtCodigo = new TextBox();
-            txtNome = new TextBox();
-            txtPreco = new TextBox();
+            DgvProdutos = new DataGridView();
+            BtnAdicionar = new Button();
+            BtnRemover = new Button();
+            BtnAtualizar = new Button();
+            TxtCodigo = new TextBox();
+            TxtNome = new TextBox();
+            TxtPreco = new TextBox();
             lblCodigo = new Label();
             lblNome = new Label();
             lblPreco = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            label1 = new Label();
+            TxtPesquisar = new TextBox();
+            BtnPesquisar = new Button();
+            ((System.ComponentModel.ISupportInitialize)DgvProdutos).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // DgvProdutos
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(272, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(307, 202);
-            dataGridView1.TabIndex = 0;
+            DgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvProdutos.Location = new Point(7, 115);
+            DgvProdutos.Name = "DgvProdutos";
+            DgvProdutos.Size = new Size(373, 202);
+            DgvProdutos.TabIndex = 0;
             // 
-            // btnAdicionar
+            // BtnAdicionar
             // 
-            btnAdicionar.Location = new Point(272, 247);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(75, 23);
-            btnAdicionar.TabIndex = 1;
-            btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
-            btnAdicionar.Click += btnAdicionar_Click;
+            BtnAdicionar.Location = new Point(7, 86);
+            BtnAdicionar.Name = "BtnAdicionar";
+            BtnAdicionar.Size = new Size(75, 23);
+            BtnAdicionar.TabIndex = 1;
+            BtnAdicionar.Text = "Adicionar";
+            BtnAdicionar.UseVisualStyleBackColor = true;
+            BtnAdicionar.Click += btnAdicionar_Click;
             // 
-            // btnRemover
+            // BtnRemover
             // 
-            btnRemover.Location = new Point(374, 247);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(75, 23);
-            btnRemover.TabIndex = 2;
-            btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = true;
+            BtnRemover.Location = new Point(88, 85);
+            BtnRemover.Name = "BtnRemover";
+            BtnRemover.Size = new Size(75, 23);
+            BtnRemover.TabIndex = 2;
+            BtnRemover.Text = "Remover";
+            BtnRemover.UseVisualStyleBackColor = true;
             // 
-            // btnAtualizar
+            // BtnAtualizar
             // 
-            btnAtualizar.Location = new Point(478, 247);
-            btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(75, 23);
-            btnAtualizar.TabIndex = 3;
-            btnAtualizar.Text = "Atualizar";
-            btnAtualizar.UseVisualStyleBackColor = true;
+            BtnAtualizar.Location = new Point(169, 85);
+            BtnAtualizar.Name = "BtnAtualizar";
+            BtnAtualizar.Size = new Size(75, 23);
+            BtnAtualizar.TabIndex = 3;
+            BtnAtualizar.Text = "Atualizar";
+            BtnAtualizar.UseVisualStyleBackColor = true;
             // 
-            // txtCodigo
+            // TxtCodigo
             // 
-            txtCodigo.Location = new Point(70, 37);
-            txtCodigo.Name = "txtCodigo";
-            txtCodigo.Size = new Size(100, 23);
-            txtCodigo.TabIndex = 5;
+            TxtCodigo.Location = new Point(52, 6);
+            TxtCodigo.Name = "TxtCodigo";
+            TxtCodigo.Size = new Size(142, 23);
+            TxtCodigo.TabIndex = 5;
             // 
-            // txtNome
+            // TxtNome
             // 
-            txtNome.Location = new Point(70, 82);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(100, 23);
-            txtNome.TabIndex = 6;
+            TxtNome.Location = new Point(52, 31);
+            TxtNome.Name = "TxtNome";
+            TxtNome.Size = new Size(142, 23);
+            TxtNome.TabIndex = 6;
             // 
-            // txtPreco
+            // TxtPreco
             // 
-            txtPreco.Location = new Point(70, 132);
-            txtPreco.Name = "txtPreco";
-            txtPreco.Size = new Size(117, 23);
-            txtPreco.TabIndex = 7;
+            TxtPreco.Location = new Point(52, 56);
+            TxtPreco.Name = "TxtPreco";
+            TxtPreco.Size = new Size(142, 23);
+            TxtPreco.TabIndex = 7;
             // 
             // lblCodigo
             // 
             lblCodigo.AutoSize = true;
-            lblCodigo.Location = new Point(20, 40);
+            lblCodigo.Location = new Point(6, 9);
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new Size(46, 15);
             lblCodigo.TabIndex = 9;
@@ -110,7 +113,7 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Location = new Point(26, 85);
+            lblNome.Location = new Point(6, 34);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(40, 15);
             lblNome.TabIndex = 10;
@@ -119,46 +122,77 @@
             // lblPreco
             // 
             lblPreco.AutoSize = true;
-            lblPreco.Location = new Point(26, 135);
+            lblPreco.Location = new Point(9, 59);
             lblPreco.Name = "lblPreco";
             lblPreco.Size = new Size(37, 15);
             lblPreco.TabIndex = 11;
             lblPreco.Text = "Preço";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 323);
+            label1.Name = "label1";
+            label1.Size = new Size(60, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Pesquisar:";
+            // 
+            // TxtPesquisar
+            // 
+            TxtPesquisar.Location = new Point(72, 320);
+            TxtPesquisar.Name = "TxtPesquisar";
+            TxtPesquisar.Size = new Size(242, 23);
+            TxtPesquisar.TabIndex = 13;
+            // 
+            // BtnPesquisar
+            // 
+            BtnPesquisar.Location = new Point(320, 323);
+            BtnPesquisar.Name = "BtnPesquisar";
+            BtnPesquisar.Size = new Size(60, 23);
+            BtnPesquisar.TabIndex = 14;
+            BtnPesquisar.Text = "Buscar";
+            BtnPesquisar.UseVisualStyleBackColor = true;
+            // 
             // FormEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 324);
+            ClientSize = new Size(845, 481);
+            Controls.Add(BtnPesquisar);
+            Controls.Add(TxtPesquisar);
+            Controls.Add(label1);
             Controls.Add(lblPreco);
             Controls.Add(lblNome);
             Controls.Add(lblCodigo);
-            Controls.Add(txtPreco);
-            Controls.Add(txtNome);
-            Controls.Add(txtCodigo);
-            Controls.Add(btnAtualizar);
-            Controls.Add(btnRemover);
-            Controls.Add(btnAdicionar);
-            Controls.Add(dataGridView1);
+            Controls.Add(TxtPreco);
+            Controls.Add(TxtNome);
+            Controls.Add(TxtCodigo);
+            Controls.Add(BtnAtualizar);
+            Controls.Add(BtnRemover);
+            Controls.Add(BtnAdicionar);
+            Controls.Add(DgvProdutos);
             Name = "FormEstoque";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormEstoque";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvProdutos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Button btnAdicionar;
-        private Button btnRemover;
-        private Button btnAtualizar;
-        private TextBox txtCodigo;
-        private TextBox txtNome;
-        private TextBox txtPreco;
+        private DataGridView DgvProdutos;
+        private Button BtnAdicionar;
+        private Button BtnRemover;
+        private Button BtnAtualizar;
+        private TextBox TxtCodigo;
+        private TextBox TxtNome;
+        private TextBox TxtPreco;
         private Label lblCodigo;
         private Label lblNome;
         private Label lblPreco;
+        private Label label1;
+        private TextBox TxtPesquisar;
+        private Button BtnPesquisar;
     }
 }

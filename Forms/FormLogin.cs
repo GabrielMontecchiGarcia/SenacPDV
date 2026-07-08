@@ -21,11 +21,10 @@ namespace SenacPDV.Forms
                 return;
             }
 
-            // Authenticate returns the User when credentials are valid
             var user = AuthService.Authenticate(username, password);
             if (user != null)
             {
-                // Use AuthService.IsInRole to check the authenticated user's role
+                
                 if (AuthService.IsInRole(user, "Admin"))
                 {
                     var admin = new FormAdmin();

@@ -1,0 +1,99 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using SenacPDV.Context;
+using SenacPDV.Models;
+
+namespace SenacPDV.Services
+{
+    internal class EstoqueService
+    {
+        private readonly PdvDbContext _context;
+        public EstoqueService(PdvDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Produto>> GetAllAsync()
+        {
+            return await _context.Produtos.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<Produto?> GetByIdAsync(int id)
+        {
+            return await _context.Produtos.FindAsync(id);
+        }
+
+        public async Task AddAsync(Produto produto)
+        {
+            await _context.Produtos.AddAsync(produto);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(Produto produto)
+        {
+            _context.Produtos.Update(produto);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var p = await _context.Produtos.FindAsync(id);
+            if (p != null)
+            {
+                _context.Produtos.Remove(p);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<bool> BaixarEstoqueAsync(int produtoId, int quantidade)
+        {
+            if (quantidade <= 0)
+                throw new ArgumentException("Quantidade deve ser maior que zero.", nameof(quantidade));
+
+            var produto = await _context.Produtos.FindAsync(produtoId);
+            if (produto == null)
+                return false;
+
+            if (produto.Estoque < quantidade)
+                return false; // insufficient stock
+
+            produto.Estoque -= quantidade;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> AdicionarEstoqueAsync(int produtoId, int quantidade)
+        {
+            if (quantidade <= 0)
+                throw new ArgumentException("Quantidade deve ser maior que zero.", nameof(quantidade));
+
+            var produto = await _context.Produtos.FindAsync(produtoId);
+            if (produto == null)
+                return false;
+
+            produto.Estoque += quantidade;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        public async Task<bool> RegistrarMovimentacaoAsync(MovimentacaoEstoque movimentacao)
+        {
+            object value = _context.MovimentacoesEstoque.Add(movimentacao);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<List<MovimentacaoEstoque>> ObterHistoricoMovimentacoesAsync(DateTime? inicio = null, DateTime? fim = null)
+        {
+            var query = _context.MovimentacoesEstoque
+                .Include(m => m.Produto)
+                .Include(m => m.User)
+                .AsQueryable();
+
+            if (inicio.HasValue) query = query.Where(m => m.DataMovimentacao >= inicio);
+            if (fim.HasValue) query = query.Where(m => m.DataMovimentacao <= fim);
+
+            return await query.OrderByDescending(m => m.DataMovimentacao).ToListAsync();
+        }
+    }
+}
